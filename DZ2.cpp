@@ -131,7 +131,7 @@ unsigned int F_Gamma(unsigned int Block) // Функция Гаммирован�
 	return (Block ^ Gamma);
 }
 
-void crypt(char original[512], int key, char result[512], bool flag_crypt) //истина шифрование, ложь дешифрование
+юvoid crypt(char original[512], int key, char result[512], bool flag_crypt) //истина шифрование, ложь дешифрование
 {
 	int const blocksize = 4;
 	int SizeLastBlock, copy_blocksize;
@@ -141,7 +141,7 @@ void crypt(char original[512], int key, char result[512], bool flag_crypt) //и�
 
 	blocks = strsize / blocksize;
 	SizeLastBlock = strsize - blocks * blocksize;
-	if (SizeLastBlock != 0)	blocks++;
+if (SizeLastBlock != 0)	blocks++;
 	srand(key); // Инициализация генератора ПСЧ ключом шифра
 	for (int i = 0; i < blocks; i++)
 	{
@@ -167,7 +167,7 @@ void crypt(char original[512], int key, char result[512], bool flag_crypt) //и�
 
 char Str[512];
 int len = 0;
-int key; // Суда запишем значение секретного ключа
+int key; // Сюда запишем значение секретного ключа
 
 OPENFILENAME ofn; // Структура для стандартных окон "Открыть файл" и "Сохранить"
 TCHAR NameFile[256] = "MyFile.shf"; // Сюда будет записано имя файла
