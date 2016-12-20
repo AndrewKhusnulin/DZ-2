@@ -184,7 +184,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			ofn.lpstrFile = NameFile; 
 			ofn.lpstrFile[0] = '\0';
 			ofn.nMaxFile = 255;
-			ofn.lpstrFilter = "Шифрованные файлы (*.shf)\0*.shf\0Все файлы\0*.*\0";
+			ofn.lpstrFilter = "ГГЁГґГ°Г®ГўГ Г­Г­Г»ГҐ ГґГ Г©Г«Г» (*.shf)\0*.shf\0Г‚Г±ГҐ ГґГ Г©Г«Г»\0*.*\0";
 			ofn.nFilterIndex = 0;
 			ofn.lpstrFileTitle = NULL;
 			ofn.nMaxFileTitle = 0;
@@ -201,7 +201,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					pF1 = fopen(NameFile, "rb"); 
 					if (pF1 == 0)
 					{
-						MessageBox(hWnd, "Ошибка открытия файла. Возможно файл не существует", "Сообщение об ошибке", MB_OK | MB_ICONHAND);
+						MessageBox(hWnd, "ГЋГёГЁГЎГЄГ  Г®ГІГЄГ°Г»ГІГЁГї ГґГ Г©Г«Г . Г‚Г®Г§Г¬Г®Г¦Г­Г® ГґГ Г©Г« Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ", "Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ Г®ГЎ Г®ГёГЁГЎГЄГҐ", MB_OK | MB_ICONHAND);
 						return TRUE;
 					}
 					fread(&len, sizeof(int), 1, pF1); 
@@ -211,13 +211,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					Str[len] = 0;
 					InvalidateRect(hWnd, 0, TRUE);
 				}
-				else MessageBox(hWnd, "Данные не прочитаны. Ключ не введен!!", "Сообщение", MB_OK | MB_ICONHAND);
+				else MessageBox(hWnd, "Г„Г Г­Г­Г»ГҐ Г­ГҐ ГЇГ°Г®Г·ГЁГІГ Г­Г». ГЉГ«ГѕГ· Г­ГҐ ГўГўГҐГ¤ГҐГ­!!", "Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ", MB_OK | MB_ICONHAND);
 			}
 			break;
 		case ID_32772: 
 			ofn.lStructSize = sizeof(OPENFILENAME);
 			ofn.hwndOwner = hWnd;
-			ofn.lpstrFilter = "Шифрованные файлы (*.shf)\0*.shf\0Все файлы\0*.*\0";
+			ofn.lpstrFilter = "ГГЁГґГ°Г®ГўГ Г­Г­Г»ГҐ ГґГ Г©Г«Г» (*.shf)\0*.shf\0Г‚Г±ГҐ ГґГ Г©Г«Г»\0*.*\0";
 			ofn.lpstrFile = NameFile;
 			ofn.nMaxFile = 255;
 			ofn.lpstrFileTitle = NULL;
@@ -238,15 +238,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					pF1 = fopen(NameFile, "wb"); 
 					if (pF1 == 0)
 					{
-						MessageBox(hWnd, "Ошибка открытия файла.", "Сообщение об ошибке", MB_OK | MB_ICONHAND);
+						MessageBox(hWnd, "ГЋГёГЁГЎГЄГ  Г®ГІГЄГ°Г»ГІГЁГї ГґГ Г©Г«Г .", "Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ Г®ГЎ Г®ГёГЁГЎГЄГҐ", MB_OK | MB_ICONHAND);
 						return TRUE;
 					}
 					fwrite(&len, sizeof(int), 1, pF1); 
 					fwrite(Shifr, sizeof(char), len, pF1); 
 					fclose(pF1);
-					MessageBox(hWnd, "Данные успешно сохранены.", "Сообщение", MB_OK | MB_ICONINFORMATION);
+					MessageBox(hWnd, "Г„Г Г­Г­Г»ГҐ ГіГ±ГЇГҐГёГ­Г® Г±Г®ГµГ°Г Г­ГҐГ­Г».", "Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ", MB_OK | MB_ICONINFORMATION);
 				}
-				else MessageBox(hWnd, "Данные не сохранены. Ключ не введен!!", "Сообщение", MB_OK | MB_ICONHAND);
+				else MessageBox(hWnd, "Г„Г Г­Г­Г»ГҐ Г­ГҐ Г±Г®ГµГ°Г Г­ГҐГ­Г». ГЉГ«ГѕГ· Г­ГҐ ГўГўГҐГ¤ГҐГ­!!", "Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ", MB_OK | MB_ICONHAND);
 			}
 
 			break;
@@ -305,7 +305,7 @@ INT_PTR CALLBACK MyDialog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 																				  
 				if (sscanf(Str, "%d", &key) < 1)
 				{
-					MessageBox(hDlg, "Неверный формат ключа. Ключ должен быть целым числом", "Сообщение о неверном формате ключа", MB_OK | MB_ICONHAND);
+					MessageBox(hDlg, "ГЌГҐГўГҐГ°Г­Г»Г© ГґГ®Г°Г¬Г ГІ ГЄГ«ГѕГ·Г . ГЉГ«ГѕГ· Г¤Г®Г«Г¦ГҐГ­ ГЎГ»ГІГј Г¶ГҐГ«Г»Г¬ Г·ГЁГ±Г«Г®Г¬", "Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ Г® Г­ГҐГўГҐГ°Г­Г®Г¬ ГґГ®Г°Г¬Г ГІГҐ ГЄГ«ГѕГ·Г ", MB_OK | MB_ICONHAND);
 					return (INT_PTR)TRUE; 
 				}
 			}
